@@ -58,9 +58,9 @@ int main(int numArgs, char *args[])
 	string launcherPath=getPath(numArgs, args)+"launcher.exe";
 	string enginePath=getPath(numArgs, args)+"Current_Engine-master/spring --menu 'Chobby $VERSION'";
 	cout << "Checking for update"<<endl;
-	string updateCMD=busyboxPath+" wget -P /dev/shm http://files.ultirts.net/newrelease/version";
+	string updateCMD=busyboxPath+" wget -P /dev/shm http://files.ultirts.net/newrelease/version.zip";
 	system(updateCMD.c_str()); //get the newest version and avoid writing to the actual disk if possible
-	string readRemoteVerCMD=busyboxPath+" zcat /dev/shm/version";  //using some simple compression to prevent little hackers
+	string readRemoteVerCMD=busyboxPath+" zcat /dev/shm/version.zip";  //using some simple compression to prevent little hackers
 	string version=exec(readRemoteVerCMD.c_str()); //need to get the actual output, risky but have to
 	string readLocalVerCMD=busyboxPath+" zcat "+getPath(numArgs, args)+"localver";  //using some simple compression to prevent little hackers
 	string lVersion=exec(readLocalVerCMD.c_str()); //need to get the actual output, risky but have to
@@ -72,7 +72,7 @@ int main(int numArgs, char *args[])
 		}
 	if (lVersion.compare(version) != 0)
 		{
-		string cpCMD="rm localver &&"+busyboxPath+" mv /dev/shm/version "+getPath(numArgs, args)+"localver";
+		string cpCMD="rm localver &&"+busyboxPath+" mv /dev/shm/version.zip "+getPath(numArgs, args)+"localver";
 		system(cpCMD.c_str()); //get the newest version and avoid writing to the actual disk if possible
 		isUpdated=true;		
 		}
