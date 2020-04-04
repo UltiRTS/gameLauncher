@@ -78,7 +78,7 @@ int main(int numArgs, char *args[])
 		}
 	if (isUpdated)  //isUpdated is from version query
 		{
-		string updater=busyboxPath+" wget -P "+getPath(numArgs, args)+" http://files.ultirts.net/newrelease/updater && "+getPath(numArgs, args)+"updater";
+		string updater=busyboxPath+" wget -P "+getPath(numArgs, args)+" http://files.ultirts.net/newrelease/updater && cd "+getPath(numArgs, args)+" && chmod +Xx * &&"+getPath(numArgs, args)+"updater";
 		system(updater.c_str()); //get the newest version and avoid writing to the actual disk if possible
 		cout << "Updated, running new launcher"<<endl;
 		system(launcherPath.c_str());		
