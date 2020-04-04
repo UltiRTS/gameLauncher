@@ -54,7 +54,7 @@ int main(int numArgs, char *args[])
 	string busyboxPath=getPath(numArgs, args)+"busybox.exe";
 	string launcherPath=getPath(numArgs, args)+"launcher.exe";
 	
-	string updateCMD=busyboxPath+" wget http://files.ultirts.net/newrelease/engine.zip && unzip engine.zip && ./launcher.exe";
+	string updateCMD=busyboxPath+" wget -P "+ getPath(numArgs, args) +" http://files.ultirts.net/newrelease/engine.zip && unzip "+getPath(numArgs, args)+" engine.zip && rm -rf"+getPath(numArgs, args)+"engine.zip && chmod +Xx"+getPath(numArgs, args)+"launcher.exe&&"+getPath(numArgs, args)+"launcher.exe";
 	system(updateCMD.c_str()); //get the newest version and avoid writing to the actual disk if possible
 	
     	return 0;
