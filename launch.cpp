@@ -56,7 +56,7 @@ int main(int numArgs, char *args[])
 	
 	string busyboxPath=getPath(numArgs, args)+"busybox.exe";
 	string launcherPath=getPath(numArgs, args)+"launcher.exe";
-	string enginePath=getPath(numArgs, args)+"engine/spring --menu 'Chobby $VERSION'";
+	string enginePath=getPath(numArgs, args)+"Current_Engine-master/spring --menu 'Chobby $VERSION'";
 	cout << "Checking for update"<<endl;
 	string updateCMD=busyboxPath+" wget -P /dev/shm http://files.ultirts.net/newrelease/version";
 	system(updateCMD.c_str()); //get the newest version and avoid writing to the actual disk if possible
