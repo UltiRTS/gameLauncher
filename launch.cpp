@@ -58,7 +58,7 @@ int main(int numArgs, char *args[])
 	string launcherPath=getPath(numArgs, args)+"launcher.exe";
 	string enginePath=getPath(numArgs, args)+"Current_Engine-master/spring --menu 'Chobby $VERSION'";
 	cout << "Checking for update"<<endl;
-	string updateCMD=busyboxPath+" wget -P /dev/shm http://files.ultirts.net/newrelease/version.zip";
+	string updateCMD=busyboxPath+" rm -rf /dev/shm/version.zip &&"+busyboxPath+" wget -P /dev/shm http://files.ultirts.net/newrelease/version.zip";
 	system(updateCMD.c_str()); //get the newest version and avoid writing to the actual disk if possible
 	string readRemoteVerCMD=busyboxPath+" zcat /dev/shm/version.zip";  //using some simple compression to prevent little hackers
 	string version=exec(readRemoteVerCMD.c_str()); //need to get the actual output, risky but have to
