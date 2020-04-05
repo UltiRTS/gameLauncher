@@ -6,8 +6,6 @@
 #include <stdexcept>
 #include <array>
 #include <SDL2/SDL_test.h>
-#include <iostream>
-#include <string>
 #include <vector>
 using namespace std;
 
@@ -69,15 +67,11 @@ int terminalPos=320;
 vector<string> logMsg={"...","...","..."};
 
 int headingMsg=0;
-
-
-
 void rollLowerRightCMD(string infoUpdate)
 {
 
 	logMsg.insert(logMsg.begin(),infoUpdate);
-	 
-    	char cstr1[logMsg[0].size() + 1];
+	char cstr1[logMsg[0].size() + 1];
 	strcpy(cstr1, logMsg[0].c_str());
     	char cstr2[logMsg[1].size() + 1];
 	strcpy(cstr2, logMsg[1].c_str());
@@ -141,24 +135,12 @@ void rollLowerRightCMD(string infoUpdate)
 
 int main(int argc,char* argv[]) 
 {
-	
-	
-	
-	
 	SDL_Init(SDL_INIT_AUDIO);
 	Windows=SDL_CreateWindow("TestString",100,100,600,350,SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
 	WindowRen=SDL_CreateRenderer(Windows,-1,0);
         SDL_Event event;
-
-
-        
-
-
 	SDL_SetRenderDrawColor(WindowRen, 0, 255, 255, 255);
 	SDL_RenderFillRect(WindowRen, &rect);
-    
-
-
 	/*while(true)
     	{
     		
@@ -177,18 +159,6 @@ int main(int argc,char* argv[])
 	return 0;
 	
 	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	string busyboxPath=getPath(argc, argv)+"busybox.exe";
 	string launcherPath=getPath(argc, argv)+"launcher.exe";
 	string enginePath=getPath(argc, argv)+"Current_Engine-master/spring --menu 'Chobby $VERSION'";
