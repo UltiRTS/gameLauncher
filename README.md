@@ -9,3 +9,6 @@
 use `g++ -o launcher.exe launcher.cpp -I/usr/local/include -L/usr/local/lib -lSDL2 -lSDL2_test` to compile
 `chmod +Xx /path/*` to grant exe permission
 `/path/launcher.exe` to run
+
+# TODO
+[ ] write a C++ wrapper layer for busybox
