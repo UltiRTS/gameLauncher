@@ -134,7 +134,6 @@ int main(int argc,char* argv[]) {
 				SDL_Quit();
 				return 0;
 			}
-
 		}
 	SDL_Delay(2);
 	}
@@ -168,7 +167,7 @@ int main(int argc,char* argv[]) {
 		system(initVer.c_str()); //initialize the version pool
 	}
 	if (lVersion.compare(version) != 0) {
-		string cpCMD = "rm localver &&" + busyboxPath + " mv /dev/shm/version.zip " + basePath + "localver";
+		string cpCMD = busyboxPath+" rm "+basePath+"localver &&" + busyboxPath + " mv /dev/shm/version.zip " + basePath + "localver";
 		system(cpCMD.c_str()); //get the newest version and avoid writing to the actual disk if possible
 		isUpdated = true;
 	}
