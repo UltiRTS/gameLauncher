@@ -7,7 +7,7 @@ CPPFLAGS=-Wall
 all: launcher
 
 launcher:
-	g++ -o $@.exe launcher.cpp -I/usr/local/include -L/usr/local/lib -lSDL2 -lSDL2_test
+	g++ -o $@.exe launcher.cpp $(CPPFLAGS) $(SDLFLAGS) -lSDL2_test
 
 clean:
 	rm ./launcher
