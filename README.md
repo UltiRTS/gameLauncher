@@ -6,8 +6,9 @@
 `/path/launcher.exe`
 
 ## To compile:
-use `g++ -o launcher.exe launcher.cpp -I/usr/local/include -L/usr/local/lib -lSDL2 -lSDL2_test` to compile
-`chmod +Xx /path/*` to grant exe permission
+### Method A. use `g++ -o launcher.exe launcher.cpp -I/usr/local/include -L/usr/local/lib -lSDL2 -lSDL2_test` to compile
+### Method B. `make` to compile
+### After A or B, `chmod +Xx /path/*` to grant exe permission
 `/path/launcher.exe` to run
 
 # TODO
